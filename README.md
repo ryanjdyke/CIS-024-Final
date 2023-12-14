@@ -13,7 +13,7 @@ This tool is still under development, but its intended use is to be run on a ser
 
 To use this tool, first download the code in the repo, then run with the command "poetry run python scraper.py". Poetry should set up a virtual environment for you with the required dependencies.
 
-If that doesn't work, use pip to install poetry and the required dependencies in pyproject.toml as well as geckodriver before running the code in scraper.py.
+If that doesn't work, use pip to install poetry and the required dependencies in pyproject.toml before running the code in scraper.py. You may also need to install geckodriver at https://github.com/mozilla/geckodriver/releases.
 
 Now you can set your desired number of consecutive days in scraper.py on line 20 under "desired_consecutive_days". The default number of days is 3.
 
