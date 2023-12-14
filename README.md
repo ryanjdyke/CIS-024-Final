@@ -11,7 +11,11 @@ This tool is still under development, but its intended use is to be run on a ser
 
 # How Do I Use It?
 
-To use this tool, first download the code in the repo, then set your desired number of consecutive days in scraper.py on line 20 under "desired_consecutive_days". The default number of days is 3.
+To use this tool, first download the code in the repo, then run with the command "poetry run python scraper.py". Poetry should set up a virtual environment for you with the required dependencies.
+
+If that doesn't work, use pip to install poetry and the required dependencies in pyproject.toml as well as geckodriver before running the code in scraper.py.
+
+Now you can set your desired number of consecutive days in scraper.py on line 20 under "desired_consecutive_days". The default number of days is 3.
 
 Then, fill in your email username, password, and your target email in the email_sender.py script located in the lib folder. For security reasons, I have not added these credentials by default.
 

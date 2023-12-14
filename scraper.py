@@ -1,5 +1,5 @@
 from lib import email_sender
-from webdrivermanager import GeckoDriverManager
+# from webdrivermanager import GeckoDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
@@ -10,14 +10,13 @@ from selenium.webdriver import Firefox
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.firefox.options import Options
 options = Options()
-options.set_preference('profile', '/Users/ryanjdyke/Library/Application Support/Firefox/Profiles/gqpn7hxe.default-release')
 service = Service('/usr/local/bin/geckodriver')
 driver = Firefox(service=service, options=options)
 driver.set_window_size(1920, 1080)
 driver.get("https://www.recreation.gov/camping/campgrounds/232447")
 
-gdd = GeckoDriverManager()
-gdd.download_and_install()
+# gdd = GeckoDriverManager()
+# gdd.download_and_install()
 
 
 try:
@@ -67,13 +66,13 @@ try:
     elif len(days_list)==1:
         days_list = days_list[0]
 
-    if available_days >= desired_consecutive_days:
-        email_sender.send_email(days_list)
+    print(days_list)
+    # if available_days >= desired_consecutive_days:
+    #     email_sender.send_email(days_list)
 
 finally:
     driver.quit()
 
 
-#Remove custom webdriver options
 #Make main.py?
-#
+#Figure out geckodriver weirdness
