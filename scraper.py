@@ -13,3 +13,17 @@ service = Service('/usr/local/bin/geckodriver')
 driver = Firefox(service=service, options=options)
 driver.set_window_size(1920, 1080)
 driver.get("https://www.recreation.gov/camping/campgrounds/232447")
+
+try:
+    campsite_table = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "tbody")))
+    
+    data = {}
+
+    for tr in campsite_table.find_elements(By.XPATH, "//tr"):
+        row = [cell.text for cell in tr.find_elements(By.CLASS_NAME, "rec-availability-date")]
+        data.append(row)
+    
+    print(data)
+
+finally:
+    driver.quit()
