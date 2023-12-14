@@ -1,5 +1,4 @@
 from lib import email_sender
-# from webdrivermanager import GeckoDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
@@ -9,6 +8,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import Firefox
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.firefox.options import Options
+import geckodriver_autoinstaller
+
 options = Options()
 service = Service('/usr/local/bin/geckodriver')
 driver = Firefox(service=service, options=options)

@@ -10,7 +10,7 @@ readme = "README.md"
 python = "^3.11"
 selenium = "^4.16.0"
 yagmail = "^0.15.293"
-webdrivermanager = "^0.10.0"
+geckodriver-autoinstaller = "^0.1.0"
 
 [build-system]
 requires = ["poetry-core"]
