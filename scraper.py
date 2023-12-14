@@ -1,4 +1,5 @@
 from lib import email_sender
+from webdrivermanager import GeckoDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
@@ -14,6 +15,9 @@ service = Service('/usr/local/bin/geckodriver')
 driver = Firefox(service=service, options=options)
 driver.set_window_size(1920, 1080)
 driver.get("https://www.recreation.gov/camping/campgrounds/232447")
+
+gdd = GeckoDriverManager()
+gdd.download_and_install()
 
 
 try:
@@ -68,3 +72,8 @@ try:
 
 finally:
     driver.quit()
+
+
+#Remove custom webdriver options
+#Make main.py?
+#
