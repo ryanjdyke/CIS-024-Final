@@ -7,13 +7,13 @@ Me too! That's why I've created this repository: It allows you to automate your 
 
 How does it work? I'm glad you asked. It scrapes the recreation.gov website, and if a campsite is found on a certain number of consecutive days, it sends you an email with the dates available and a link to reserve your sites.
 
-# How Do I Use It?
-
 This tool is still under development, but its intended use is to be run on a server like a Raspberry Pi. At the moment it uses selenium with a Firefox webdriver, so it is only compatible with that browser.
+
+# How Do I Use It?
 
 To use this tool, first download the code in the repo, then set your desired number of consecutive days in scraper.py on line 20 under "desired_consecutive_days". The default number of days is 3.
 
-Then, fill in your email username, password, and your target email in the email_sender.py script located in the lib folder. For security reasons, I have not added these credentials to the repo by default.
+Then, fill in your email username, password, and your target email in the email_sender.py script located in the lib folder. For security reasons, I have not added these credentials by default.
 
 Once you're all set up, just run the scraper.py script, and watch it find your campsite availability automatically! If desired, this code could be run as a cron job on a server to search multiple times per day.
 
