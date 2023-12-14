@@ -9,7 +9,7 @@ How does it work? I'm glad you asked. It scrapes the recreation.gov website, and
 
 # How Do I Use It?
 
-This tool is still under development, but it's intended use is to be run on a server like a Raspberry Pi. At the moment it uses selenium with a Firefox webdriver, so it is only compatible with that browser.
+This tool is still under development, but its intended use is to be run on a server like a Raspberry Pi. At the moment it uses selenium with a Firefox webdriver, so it is only compatible with that browser.
 
 To use this tool, first download the code in the repo, then set your desired number of consecutive days in scraper.py on line 20 under "desired_conescutive_days". The default number of days is 3.
 
