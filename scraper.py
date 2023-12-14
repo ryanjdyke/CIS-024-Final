@@ -1,3 +1,4 @@
+from lib import email_sender
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
@@ -25,7 +26,6 @@ try:
     raw_data = []
 
     dates = []
-    print(campsite_table.find_elements(By.CLASS_NAME, "date"))
     for th in campsite_table.find_elements(By.XPATH, "//th"):
         for contents in th.find_elements(By.CLASS_NAME, "camp-sortable-contents"):
             for cell in contents.find_elements(By.CLASS_NAME, "date"):
@@ -43,20 +43,28 @@ try:
 
     # arrange raw data by date
     for i in range (start_day, end_day):
-        data_table['dec-'+str(i)] = []
+        data_table['Dec '+str(i)] = []
         for index,site in enumerate(raw_data): 
-            data_table['dec-'+str(i)].append(site[i-13])
+            data_table['Dec '+str(i)].append(site[i-start_day])
     
+    # find days with availability
     available_days = 0
+    days_list = []
     for item in data_table:
         if 'A' in data_table[item]:
-            print(f"A campsite is available on {item}")
+            days_list.append(item)
             available_days += 1
 
+    # adding "and" to the end of days_list string
+    if len(days_list)>2:
+        days_list = ', '.join(days_list[:-1]) + ", and " + str(days_list[-1])
+    elif len(days_list)==2:
+        days_list = ' and '.join(days_list)
+    elif len(days_list)==1:
+        days_list = days_list[0]
+
     if available_days >= desired_consecutive_days:
-        # run email sending script
-    # print(available)
-    # print(data_table)
+        email_sender.send_email(days_list)
 
 finally:
     driver.quit()
